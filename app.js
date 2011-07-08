@@ -6,6 +6,7 @@
 var express = require('express');
 
 var app = module.exports = express.createServer();
+var Pub = require('./ctrl/public');
 
 // Configuration
 
@@ -30,11 +31,7 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Express'
-  });
-});
+app.get('/', Pub.index);
 
-app.listen(3000);
+app.listen(9393);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
